@@ -1,0 +1,145 @@
+*{
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: grey;
+  background-image: linear-gradient(rgb(22, 24, 27), rgb(170,170,170));
+  min-height: 100vh;
+
+}
+/* actual : 33,37,41 */
+/* eyeballed : 22, 24, 27 */
+
+
+.custom-form-input {
+  background-color: rgb(170, 170, 170);
+  background-image: linear-gradient(rgb(110,110,110), rgb(160,160,160));
+  border-color: black;
+  box-shadow:3px 3px 3px rgb(100,100,100);
+  color: black;
+  margin-bottom: 0.75vh;
+}
+
+.custom-form-input-pw {
+  background-color: rgb(170, 170, 170);
+  background-image: linear-gradient(rgb(130,130,130), rgb(170,170,170));
+  border-color: black;
+  box-shadow:3px 3px 3px rgb(100,100,100);
+  color: black;
+  margin-bottom: 0.75vh;
+}
+
+/* .custom-form-input-pw:hover{
+  border-color: whitesmoke;
+  box-shadow:3px 3px 3px rgb(255, 255, 255);
+} */
+
+.form-control::placeholder{
+  color: rgb(80,80,80);
+}
+
+.ws-font{
+  color: whitesmoke
+}
+
+.btn-shadow {
+  box-shadow:3px 3px 3px rgb(100,100,100);
+}
+
+.btn-shadow-dark {
+  box-shadow:3px 3px 3px rgb(70, 70, 70);
+}
+
+.mtg-card-shadow {
+  box-shadow:3px 3px 4px rgb(75,75,75);
+}
+
+.btn-border{
+  border: solid 1px rgb(75, 75, 75);
+}
+.btn-border:hover{
+  border: solid 1px rgb(75,75,75);
+}
+
+
+
+.card-shadow {
+  box-shadow:5px 5px 5px rgb(65,65,65,0.8);
+}
+
+.high-card-shadow {
+  box-shadow:5px 5px 5px rgb(50,50,50);
+}
+
+.grad {
+  background-image: linear-gradient(rgb(70, 70, 70), rgb(170,170,170));
+}
+
+
+.custom-alert{
+  border: solid 1px black;
+  box-shadow:5px 5px 5px rgb(40,40,40);
+}
+
+
+.yourDiv{
+  position:absolute;
+  top: 270px;
+  left: 0px;
+  background-color: rgb(50,50,50,0.75);
+  height: 200%;
+  width: 100%;
+  padding-left:2vw;
+  padding-right:2vw;
+}
+
+
+.card-h-limit{
+  height:50vh;
+  width:auto;
+}
+/* 
+ul {
+  list-style-type:circle;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+} */
+
+li {
+  float: left;
+}
+
+li::marker{
+  content:' || ';
+  margin: 0px;
+}
+
+/* .popover-arrow::before{
+  background-color: black;
+} */
+
+.grad-home{
+  background-image: linear-gradient(rgb(30, 30, 30, 0.75), rgb(50,50,50,0.6));
+}
+
+.footer-vh{
+  height: 15vh
+}
+
+.button-move:active {
+  transform: translateY(4px);
+}
+
+/* didnt work */
+/* .footer-loc{
+position:absolute;
+left:0;
+bottom:0;
+}
+
+.content-container {
+  min-height: calc(100vh - 34px);
+} */

@@ -7,7 +7,7 @@ type FooterProps = {}
 export default function Footer({}: FooterProps) {
     return (
         <>
-            <div className="bg-dark">
+            <div className="bg-dark fixed-bottom">
                 <div className='row mw-100 footer-vh text-center py-2 overflow-auto'>
                     <div className='col-6 ws-font'>
                         <p>

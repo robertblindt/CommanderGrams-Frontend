@@ -36,7 +36,7 @@ export default function CommanderSearch({}: CommanderSearchProps) {
                 n_gram:"Sorry! We either don't have data on that commander yet! Please check your spelling!",
                 commander_id :0,
                 card_name:"Card Not Found",
-                card_img:"https://picsum.photos/500/200/?blur"
+                card_img:"https://lh3.googleusercontent.com/d/1CQbMtyQLYltrEOjWLfgxqPIFzntvxNJP=w400-h400?authuser=0"
             }]
             setCardNGrams(sorry_ngram)
             setIsSearching(true)

@@ -11,6 +11,7 @@ import Home from './views/Home';
 import Login from './views/Login';
 import Register from './views/Register';
 import Footer from './components/Footer'
+import FooterBuffer from './components/FooterBuffer';
 
 // import api wrapper
 import { getMe, getMyDecks } from './lib/apiWrapper';
@@ -92,6 +93,7 @@ function App() {
           <Route path='deck/:deckId/edit' element={<EditDeckInfo flashMessage={flashMessage} currentUser={loggedInUser}/>}/>
         </Routes>
       </Container>
+      <FooterBuffer/>
       <Footer/>
     </div>
   )

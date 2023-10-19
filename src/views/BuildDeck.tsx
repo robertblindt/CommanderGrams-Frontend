@@ -7,14 +7,14 @@ import Form from 'react-bootstrap/Form'
 import UserType from '../types/auth'
 import CategoryType from '../types/category'
 import DeckType from '../types/deck';
-import { addDcById, deckTransferAPI, getDeckById, getMyDeckCards, getSearchTerms } from '../lib/apiWrapper';
+import { deckTransferAPI, getDeckById, getMyDeckCards, getSearchTerms } from '../lib/apiWrapper';
 // import DeckCard from '../components/DeckCard';
-import CommanderSearch from '../components/CommanderSearch';
+// import CommanderSearch from '../components/CommanderSearch';
 import { useParams } from 'react-router-dom';
 import CardType from '../types/card';
 import DeckCollection from '../types/deck_collection';
 import CardCard from '../components/CardCard';
-import QuickDeckCol from '../components/QuickDeckCol';
+// import QuickDeckCol from '../components/QuickDeckCol';
 import SearchForCard from '../components/SearchForCard';
 import DisplayDeck from '../components/DisplayDeck';
 import DeckStatsCard from '../components/DeckStatsCard';
@@ -22,12 +22,12 @@ import SearchTermType from '../types/searchterm';
 import DeckDumpType from '../types/deckdump';
 
 type BuildDeckProps = {
-isLoggedIn:boolean
+// isLoggedIn:boolean
 user:Partial<UserType>|null
 flashMessage: (message:string|null, category:CategoryType|null) => void
 }
 
-export default function BuildDeck({ isLoggedIn, user, flashMessage}: BuildDeckProps) {  
+export default function BuildDeck({ user, flashMessage}: BuildDeckProps) {  
     const { deckId } = useParams();
     const [myCards, setMyCards] = useState<DeckCollection[]>([])
     const [myDeck, setMyDeck] = useState<DeckType>({

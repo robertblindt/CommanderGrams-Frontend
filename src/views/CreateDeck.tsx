@@ -11,13 +11,13 @@ import UserType from '../types/auth'
 import { addDeck } from '../lib/apiWrapper'
 
 type CreateDeckProps = {
-    isLoggedIn:boolean
+    // isLoggedIn:boolean
     user:Partial<UserType>|null
     flashMessage: (message:string|null, category:CategoryType|null) => void
     mydecks: DeckType[]
 }
 
-export default function CreateDeck({isLoggedIn, user, flashMessage, mydecks}: CreateDeckProps) {
+export default function CreateDeck({user, flashMessage, mydecks}: CreateDeckProps) {
     const [newDeck,setNewDeck] = useState<Partial<DeckType>>({deck_name:'',description:''})
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>):void => {

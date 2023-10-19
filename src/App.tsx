@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 
 import AlertMessage from './components/AlertMessage';
@@ -87,8 +87,8 @@ function App() {
           <Route path='/' element={<Home/>}/>
           <Route path='/login' element={<Login isLoggedIn={isLoggedIn} logUserIn={logUserIn} flashMessage={flashMessage}/>}/>
           <Route path='/register' element={<Register logUserIn={logUserIn} flashMessage = {flashMessage}/>}/>
-          <Route path='/createdeck' element={<CreateDeck isLoggedIn={isLoggedIn} user={loggedInUser} flashMessage={flashMessage} mydecks={mydecks}/>}/>
-          <Route path='deck/:deckId' element={<BuildDeck flashMessage={flashMessage} user={loggedInUser} isLoggedIn={isLoggedIn} />}/>
+          <Route path='/createdeck' element={<CreateDeck user={loggedInUser} flashMessage={flashMessage} mydecks={mydecks}/>}/>
+          <Route path='deck/:deckId' element={<BuildDeck flashMessage={flashMessage} user={loggedInUser} />}/>
           <Route path='deck/:deckId/edit' element={<EditDeckInfo flashMessage={flashMessage} currentUser={loggedInUser}/>}/>
         </Routes>
       </Container>

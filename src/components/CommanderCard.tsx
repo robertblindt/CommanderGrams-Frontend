@@ -1,13 +1,13 @@
 
-import DeckType from '../types/deck'
-import CardType from '../types/card'
+// import DeckType from '../types/deck'
+// import CardType from '../types/card'
 // import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 // import PostType from '../types/post';
+// // import UserType from '../types/auth';
+// import Button from 'react-bootstrap/Button';
 // import UserType from '../types/auth';
-import Button from 'react-bootstrap/Button';
-import UserType from '../types/auth';
-import CategoryType from '../types/category';
+// import CategoryType from '../types/category';
 import NGramType from '../types/ngram';
 
 type CommanderCardProps = {

@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import DeckCollection from '../types/deck_collection'
 
 type QuickDeckColProps = {

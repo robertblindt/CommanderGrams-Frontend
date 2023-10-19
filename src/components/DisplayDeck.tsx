@@ -18,7 +18,7 @@ type DisplayDeckProps = {
     
 }
 
-export default function DisplayDeck({cards,currentUser,deck, flashMessage}: DisplayDeckProps) {
+export default function DisplayDeck({cards,deck, flashMessage}: DisplayDeckProps) {
     const tableHeads = ["Card Name", "Type", "CMC", "\uD83C\uDCA0", "\u2655", ''] 
 
     // const closeFocus = ():void => {

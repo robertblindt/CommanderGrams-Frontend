@@ -135,7 +135,10 @@ return (
                 </div>
                 <div className="row m-0 p-0">
                 <Form className='ws-font' onSubmit={deckTransfer}>
-                    <Form.Label>Enter Only the cards name on each line</Form.Label>
+                    <p>If you are copying from Archidekt, you will need to remove the words 'Mainboard', 'Sideboard', etc.  You may also want to skip Basic Lands as I do not have a 'multi-card collapse' feature working right now</p>
+                    <Form.Label className='fs-4'>Format your deck as "#x Card Name":</Form.Label>
+                    <p>1x Craterhoof Behemoth</p>
+                    <p>1x Sol Ring</p>
                     <Form.Control as="textarea" className='grad ws-font' rows={50} name='deck' value={dumpCards.deck} onChange={handleInputChange}/>
                     <Button type='submit' variant='outline-danger' className='w-100 mt-3'>Submit</Button>
                 </Form>

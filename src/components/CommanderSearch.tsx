@@ -33,7 +33,7 @@ export default function CommanderSearch({}: CommanderSearchProps) {
             console.log("No Commander found with that name.")
             let sorry_ngram = [{
                 id:0,
-                n_gram:"Sorry! We either don't have data on that commander yet! Please check your spelling!",
+                n_gram:"Sorry! We either don't have data on that commander yet, or you spelled something wrong! Please check your spelling!",
                 commander_id :0,
                 card_name:"Card Not Found",
                 card_img:"https://lh3.googleusercontent.com/d/1CQbMtyQLYltrEOjWLfgxqPIFzntvxNJP=w400-h400?authuser=0"
@@ -51,6 +51,7 @@ export default function CommanderSearch({}: CommanderSearchProps) {
             <Card.Body>
                 <Form onSubmit={searchCard}>
                     <Form.Label className='fs-1 ws-font'>Request a Commander!</Form.Label>
+                    <p className='ws-font'>I am currently still assembling this data, so if we do not have it today, try again in a week!</p>
                     <Form.Control className="custom-form-input" name='commanderName' value={commanderRequest.commanderName} onChange={handleInputChange}/>
                     <Button type='submit' variant='outline-dark' className='w-100 mt-3 btn-shadow'>Submit</Button>
                 </Form>

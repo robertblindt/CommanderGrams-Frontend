@@ -140,6 +140,7 @@ return (
                     <p>1x Craterhoof Behemoth</p>
                     <p>1x Sol Ring</p>
                     <Form.Control as="textarea" className='grad ws-font' rows={50} name='deck' value={dumpCards.deck} onChange={handleInputChange}/>
+                    <p>Once you press submit, it can take up to 30 seconds to redirect if we do not have all the cards in our database already.</p>
                     <Button type='submit' variant='outline-danger' className='w-100 mt-3'>Submit</Button>
                 </Form>
                 {/* { searchCards.map(p => <CardCard card={p!} currentUser={user} deck={myDeck} key={p?.card_name} flashMessage={flashMessage}/> ) } */}

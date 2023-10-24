@@ -23,7 +23,7 @@ export default function Footer({}: FooterProps) {
                         <p>
                         If you would like to take a look at whats going on under the hood, you can find the project here:
                         </p>
-                        <a href="https://github.com/robertblindt/CommanderGrams" target="_blank" rel="nofollow">
+                        <a href="https://github.com/robertblindt/CommanderGrams-Directory" target="_blank" rel="nofollow">
                             <img src="https://img.shields.io/badge/CommanderGrams-181717?style=for-the-badge&logo=github&logoColor=white"/>
                         </a>
                         <a href="https://github.com/robertblindt" target="_blank" rel="nofollow">

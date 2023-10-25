@@ -16,7 +16,7 @@ export default function Navigation({ isLoggedIn, handleClick }:NaviationProps) {
             <Container>
                 <Navbar.Brand  as={Link} to='/' className='w-50'>
                 <img
-                src="./img/CommanderGrams_big.png"
+                src="https://commandergrams.netlify.app/img/CommanderGrams_big.png"
                 className="w-25"
                 alt="CommanderGrams Logo"
                 />

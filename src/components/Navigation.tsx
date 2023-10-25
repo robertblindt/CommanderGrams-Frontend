@@ -14,7 +14,13 @@ export default function Navigation({ isLoggedIn, handleClick }:NaviationProps) {
     return (
         <Navbar bg='dark' data-bs-theme="dark">
             <Container>
-                <Navbar.Brand  as={Link} to='/'> CommanderGrams </Navbar.Brand>
+                <Navbar.Brand  as={Link} to='/' className='w-50'>
+                <img
+                src="/img/CommanderGrams_big.png"
+                className="w-25"
+                alt="CommanderGrams Logo"
+                />
+                </Navbar.Brand>
                 <Nav>
                     { isLoggedIn ? (
                         <>

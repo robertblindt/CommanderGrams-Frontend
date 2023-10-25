@@ -27,7 +27,7 @@ export default function Footer({}: FooterProps) {
                             <img src="https://img.shields.io/badge/CommanderGrams-181717?style=for-the-badge&logo=github&logoColor=white"/>
                         </a>
                         <a href="https://github.com/robertblindt" target="_blank" rel="nofollow">
-                            <img src="https://img.shields.io/badge/My Home Page-181717?style=for-the-badge&logo=github&logoColor=white"/>
+                            <img src="https://img.shields.io/badge/My Github-181717?style=for-the-badge&logo=github&logoColor=white"/>
                         </a>
                     </div>
                 </div>

@@ -20,9 +20,13 @@ type CreateDeckProps = {
 export default function CreateDeck({user, flashMessage, mydecks}: CreateDeckProps) {
     const [newDeck,setNewDeck] = useState<Partial<DeckType>>({deck_name:'',description:''})
 
+    const [isCreating, setIsCreating] = useState<Boolean>(false)
+
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>):void => {
         setNewDeck({...newDeck, [e.target.name]:e.target.value})
     }
+
+    const IsCreatingTurn = ():void => { setIsCreating(true) }
 
     const handleFormSubmit = async (e: React.FormEvent):Promise<void> => {
         e.preventDefault();
@@ -39,7 +43,8 @@ export default function CreateDeck({user, flashMessage, mydecks}: CreateDeckProp
 
 return (
     <>
-    <Card className='my-3 border border-dark border-2 rounded-3 grad high-card-shadow'>
+    { isCreating ? (
+        <Card className='my-3 border border-dark border-2 rounded-3 grad high-card-shadow'>
         <Card.Body>
             <Form onSubmit={handleFormSubmit}>
                 <div className='text-center fs-1 ws-font'>Create a Deck!</div>
@@ -51,6 +56,10 @@ return (
             </Form>
         </Card.Body>
     </Card>
+    ):(
+        <Button variant='outline-danger' className='w-100 mt-3 my-3' onClick={IsCreatingTurn}>Add a Deck</Button>
+    )}
+    
     <div className="row">
     { mydecks.map(p => <DeckCard deck={p} currentUser={user} key={p.id}/> ) }
     </div>

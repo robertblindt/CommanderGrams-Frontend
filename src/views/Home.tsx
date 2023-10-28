@@ -10,19 +10,17 @@ import CommanderSearch from '../components/CommanderSearch';
 import HomeCard from '../components/HomeCard';
 
 type HomeProps = {
-  // isLoggedIn:boolean
+  isLoggedIn:boolean
   // user:Partial<UserType>|null
   // flashMessage: (message:string|null, category:CategoryType|null) => void
   // mydecks: DeckType[]
 }
 
-export default function Home({}: HomeProps) {  
-
-  
+export default function Home({isLoggedIn}: HomeProps) {  
 
   return (
     <>
-    <HomeCard/>
+    <HomeCard isLoggedIn={isLoggedIn}/>
     <CommanderSearch/>
     {/* I need to make a 'all decks' search that has only a 'take a look' button */}
     </>

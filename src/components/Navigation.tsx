@@ -24,7 +24,7 @@ export default function Navigation({ isLoggedIn, handleClick }:NaviationProps) {
                 <Nav>
                     { isLoggedIn ? (
                         <>
-                        <Nav.Link as={Link} to='/createdeck'>Create Deck</Nav.Link>
+                        <Nav.Link as={Link} to='/createdeck'>My Decks</Nav.Link>
                         <Nav.Link as='button' onClick={handleClick}>Log Out</Nav.Link>
                         </>
                     ) : (

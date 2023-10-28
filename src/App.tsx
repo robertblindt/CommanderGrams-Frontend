@@ -85,7 +85,7 @@ function App() {
         {message && <AlertMessage category={category!} message={message} flashMessage = {flashMessage}/>}
         <Routes>
           {/* isLoggedIn={isLoggedIn} user={loggedInUser} flashMessage={flashMessage} mydecks={mydecks} */}
-          <Route path='/' element={<Home/>}/>
+          <Route path='/' element={<Home isLoggedIn={isLoggedIn}/>}/>
           <Route path='/login' element={<Login isLoggedIn={isLoggedIn} logUserIn={logUserIn} flashMessage={flashMessage}/>}/>
           <Route path='/register' element={<Register logUserIn={logUserIn} flashMessage = {flashMessage}/>}/>
           <Route path='/createdeck' element={<CreateDeck user={loggedInUser} flashMessage={flashMessage} mydecks={mydecks}/>}/>

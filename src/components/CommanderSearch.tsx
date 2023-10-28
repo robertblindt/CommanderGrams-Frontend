@@ -1,31 +1,54 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import Card from 'react-bootstrap/Card'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import CommanderReqType from '../types/commanderreq'
+import { Typeahead } from 'react-bootstrap-typeahead' 
 import NGramType from '../types/ngram'
-import { getNGrams, searchForCommander } from '../lib/apiWrapper'
+import { getCommanderNames, getNGrams, searchForCommander } from '../lib/apiWrapper'
 import CommanderCard from './CommanderCard'
 
 type CommanderSearchProps = {
 }
 
 export default function CommanderSearch({}: CommanderSearchProps) {
-    const [commanderRequest,setCommanderRequest] = useState<CommanderReqType>({"commanderName":""})
+    // const [commanderRequest,setCommanderRequest] = useState<CommanderReqType>({"commanderName":""})
+    const [commanderRequest,setCommanderRequest] = useState<string>("")
+
+    // const [singleSelections,setSingleSelections] = useState<Option[]>(Option[]);
+
     const [isSearching, setIsSearching] = useState<boolean>(false)
 
     const [cardNGrams, setCardNGrams] = useState<NGramType[]|null>(null)
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>):void => {
-        setCommanderRequest({...commanderRequest, [e.target.name]:e.target.value})
-    }
+    const [commanderNames, setCommanderNames] = useState<string[]>([])
+
+    // const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>):void => {
+    //     setCommanderRequest({...commanderRequest, [e.target.name]:e.target.value})
+    // }
+
+    useEffect(() => {
+        async function fetchCommanders(){
+            const response = await getCommanderNames();
+            // console.log(response)
+            // const response = {data:null, error:['a','b']};
+            if (response.data){
+            let names = response.data
+                setCommanderNames(names)
+            } else {
+                setCommanderNames([])
+            }
+        }
+        fetchCommanders();
+    }, [])
 
     async function searchCard(e: React.FormEvent):Promise<NGramType[]|void>{
         e.preventDefault();
-        const search = await searchForCommander(commanderRequest.commanderName)
+        // console.log(commanderRequest)
+        const search = await searchForCommander(commanderRequest)
         if (search.data!){
-            const nGrams = await getNGrams(commanderRequest.commanderName)
+            const nGrams = await getNGrams(commanderRequest)
             // console.log(nGrams)
             setCardNGrams(nGrams.data!)
             setIsSearching(true)
@@ -41,9 +64,7 @@ export default function CommanderSearch({}: CommanderSearchProps) {
             setCardNGrams(sorry_ngram)
             setIsSearching(true)
         }
-    }
-
-    
+    }   
 
     return (
         <>
@@ -52,7 +73,19 @@ export default function CommanderSearch({}: CommanderSearchProps) {
                 <Form onSubmit={searchCard}>
                     <Form.Label className='fs-1 ws-font'>Request a Commander!</Form.Label>
                     <p className='ws-font'>I am currently still assembling this data, so if we do not have it today, try again in a week!</p>
-                    <Form.Control className="custom-form-input" name='commanderName' value={commanderRequest.commanderName} onChange={handleInputChange}/>
+                    {/* <Form.Control className="custom-form-input" name='commanderName' value={commanderRequest.commanderName} onChange={handleInputChange}/> */}
+                    {/* <Typeahead
+                    id="basic-typeahead-single"
+                    labelKey="name"
+                    // onChange={setCommanderRequest}
+                    options={commanderNames}
+                    placeholder="Choose a state..."
+                    // selected={commanderRequest}
+                    /> */}
+                    <Form.Select className="custom-form-input" name='commanderName'
+                    onChange={e => {setCommanderRequest(e.target.value);}}>
+                    {commanderNames.map(p => <option value={p} key={p}>{p}</option>)}
+                    </Form.Select>
                     <Button type='submit' variant='outline-dark' className='w-100 mt-3 btn-shadow'>Submit</Button>
                 </Form>
             </Card.Body>

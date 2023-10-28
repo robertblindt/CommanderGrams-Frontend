@@ -22,6 +22,7 @@ const commanderSearch: string = '/findcommander'
 const commanderEndPoint: string = '/commander'
 const searchTermEndPoint: string = '/searchterm'
 const dumpEndPoint:string = '/dump'
+const availableCommanders:string = '/commanders'
 
 
 const apiClientNoAuth = () => axios.create({
@@ -192,9 +193,9 @@ async function deleteDcById(token:string,cardName:string,deckId:number):Promise<
     let data;
     let jsonin = {"cardName":cardName}
     try {
-        console.log(deckEndpoint+'/'+deckId)
+        // console.log(deckEndpoint+'/'+deckId)
         const response = await apiClientTokenAuth(token).delete(deckEndpoint+'/'+deckId, {data:jsonin})
-        console.log(response)
+        // console.log(response)
         data = response.data
     } catch(err){
         if (axios.isAxiosError(err)){
@@ -214,7 +215,7 @@ async function addDcById(token:string,cardName:string,deckId:number):Promise<API
         // console.log(deckEndpoint+'/'+deckId)
         // console.log(jsonin)
         const response = await apiClientTokenAuth(token).post(deckEndpoint+'/'+deckId, jsonin)
-        console.log(response)
+        // console.log(response)
         data = response.data
     } catch(err){
         if (axios.isAxiosError(err)){
@@ -239,7 +240,7 @@ async function editDcById(token:string,cardId:number,deckId:number, is_commander
         // console.log(deckEndpoint+'/'+deckId)
         // console.log(jsonin)
         const response = await apiClientTokenAuth(token).put(deckEndpoint+'/'+deckId, jsonin)
-        console.log(response)
+        // console.log(response)
         data = response.data
     } catch(err){
         if (axios.isAxiosError(err)){
@@ -262,7 +263,7 @@ async function addDeck(token:string,deckName:string,description:string):Promise<
         // console.log(deckEndpoint+'/'+deckId)
         // console.log(jsonin)
         const response = await apiClientTokenAuth(token).post(deckEndpoint, jsonin)
-        console.log(response)
+        // console.log(response)
         data = response.data
     } catch(err){
         if (axios.isAxiosError(err)){
@@ -280,7 +281,7 @@ async function deleteDeckById(token:string,deckId:number):Promise<APIResponse<vo
     let data;
     try {
         const response = await apiClientTokenAuth(token).delete(deckEndpoint+'/'+deckId+editEndPoint)
-        console.log(response)
+        // console.log(response)
         data = response.data
     } catch(err){
         if (axios.isAxiosError(err)){
@@ -299,7 +300,7 @@ async function searchForCommander(commander:string):Promise<APIResponse<void>>{
     try {
         let j = {"commander":commander}
         const response = await apiClientNoAuth().post(commanderSearch,j)
-        console.log(response)
+        // console.log(response)
         data = response.data
     } catch(err){
         if (axios.isAxiosError(err)){
@@ -318,7 +319,7 @@ async function getNGrams(commander_name:string):Promise<APIResponse<NGramType[]>
     try {
         let j = {"cardName":commander_name}
         const response = await apiClientNoAuth().post(searchEndPoint+commanderEndPoint,j)
-        console.log(response)
+        // console.log(response)
         data = response.data
     } catch(err){
         if (axios.isAxiosError(err)){
@@ -338,7 +339,7 @@ async function addSearchTermToDB(token:string, deckId:number, search_term:string
         'search_term' : search_term}
     try {
         const response = await apiClientTokenAuth(token).post(deckEndpoint+'/'+deckId+searchTermEndPoint,jsonin)
-        console.log(response)
+        // console.log(response)
         data = response.data
     } catch(err){
         if (axios.isAxiosError(err)){
@@ -399,7 +400,21 @@ async function deckTransferAPI(token:string, deckId:number, cardDump:string):Pro
     return {error, data}
 }
 
-
+async function getCommanderNames():Promise<APIResponse<string[]>>{
+    let error;
+    let data;
+    try{
+        const response = await apiClientNoAuth().get(availableCommanders)
+        data = response.data
+    }catch(err){
+        if (axios.isAxiosError(err)){
+            error = err.response?.data.error
+        } else {
+            error = 'Something went wrong'
+        }
+    }
+    return {error, data}
+}
 
 
 export{
@@ -421,5 +436,6 @@ export{
     addSearchTermToDB, 
     getSearchTerms, 
     deleteSearchTerm,
-    deckTransferAPI
+    deckTransferAPI,
+    getCommanderNames
 }

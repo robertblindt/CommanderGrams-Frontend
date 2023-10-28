@@ -82,7 +82,7 @@ export default function CommanderSearch({}: CommanderSearchProps) {
                     placeholder="Choose a state..."
                     // selected={commanderRequest}
                     /> */}
-                    <Form.Select className="custom-form-input" name='commanderName'
+                    <Form.Select className="dropdown-form-input" name='commanderName'
                     onChange={e => {setCommanderRequest(e.target.value);}}>
                     {commanderNames.map(p => <option value={p} key={p}>{p}</option>)}
                     </Form.Select>

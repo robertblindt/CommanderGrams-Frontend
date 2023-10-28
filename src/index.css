@@ -134,15 +134,18 @@ li::marker{
 }
 
 .footer-vh{
-  height: 15vh
+  height: 10vh;
+  min-height:120px;
 }
 
 .button-move:active {
   transform: translateY(4px);
 }
 
-select.form-select{
-  color:black
+.fixed-vh{
+  height: 10vh;
+  min-height:75px;
+  max-height:100px;
 }
 
 /* didnt work */

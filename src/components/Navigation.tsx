@@ -12,16 +12,19 @@ type NaviationProps = {
 export default function Navigation({ isLoggedIn, handleClick }:NaviationProps) {
 
     return (
-        <Navbar bg='dark' data-bs-theme="dark">
-            <Container>
-                <Navbar.Brand  as={Link} to='/' className='w-50'>
+        <Navbar bg='dark' data-bs-theme="dark" className='fixed-vh p-0'>
+            <Container className='h-100'>
+                <div className='col-8 h-100 p-0 m-0'>
+                <Navbar.Brand  as={Link} to='/' className='h-100'>
                 <img
                 src="https://raw.githubusercontent.com/robertblindt/CommanderGrams-Frontend/main/img/CommanderGrams_big.png"
-                className="w-25"
+                className="h-100"
                 alt="CommanderGrams Logo"
                 />
                 </Navbar.Brand>
-                <Nav>
+                </div>
+                <div className='col-4'>
+                <Nav className='justify-content-end'>
                     { isLoggedIn ? (
                         <>
                         <Nav.Link as={Link} to='/createdeck'>My Decks</Nav.Link>
@@ -36,6 +39,7 @@ export default function Navigation({ isLoggedIn, handleClick }:NaviationProps) {
                         // <Nav.Link as={Link} to='/'>Log In</Nav.Link>
                     ) }
                 </Nav>
+                </div>
             </Container>
         </Navbar>
     )

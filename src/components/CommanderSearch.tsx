@@ -46,10 +46,11 @@ export default function CommanderSearch({}: CommanderSearchProps) {
     async function searchCard(e: React.FormEvent):Promise<NGramType[]|void>{
         e.preventDefault();
         // console.log(commanderRequest)
+        console.log(commanderRequest)
         const search = await searchForCommander(commanderRequest)
         if (search.data!){
             const nGrams = await getNGrams(commanderRequest)
-            // console.log(nGrams)
+            console.log(nGrams)
             setCardNGrams(nGrams.data!)
             setIsSearching(true)
         } else {

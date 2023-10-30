@@ -25,6 +25,7 @@ export default function Navigation({ isLoggedIn, handleClick }:NaviationProps) {
                 </div>
                 <div className='col-4'>
                 <Nav className='justify-content-end'>
+                    <Nav.Link as={Link} to='/'>Home</Nav.Link>
                     { isLoggedIn ? (
                         <>
                         <Nav.Link as={Link} to='/createdeck'>My Decks</Nav.Link>
@@ -32,11 +33,9 @@ export default function Navigation({ isLoggedIn, handleClick }:NaviationProps) {
                         </>
                     ) : (
                         <>
-                        <Nav.Link href='/register'>Register</Nav.Link>
-                        <Nav.Link href='/login'>Log In</Nav.Link>
+                        <Nav.Link as={Link} to='/register'>Register</Nav.Link>
+                        <Nav.Link as={Link} to='/login'>Log In</Nav.Link>
                         </>
-                        // <Nav.Link as={Link} to='/'>Log In</Nav.Link>
-                        // <Nav.Link as={Link} to='/'>Log In</Nav.Link>
                     ) }
                 </Nav>
                 </div>

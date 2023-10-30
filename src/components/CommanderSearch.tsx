@@ -15,7 +15,7 @@ type CommanderSearchProps = {
 
 export default function CommanderSearch({}: CommanderSearchProps) {
     // const [commanderRequest,setCommanderRequest] = useState<CommanderReqType>({"commanderName":""})
-    const [commanderRequest,setCommanderRequest] = useState<string>("")
+    // const [commanderRequest,setCommanderRequest] = useState<string>("")
     const [selected, setSelected] = useState<Option[]>([]);
 
     // const [singleSelections,setSingleSelections] = useState<Option[]>(Option[]);
@@ -49,7 +49,7 @@ export default function CommanderSearch({}: CommanderSearchProps) {
         e.preventDefault();
         // console.log(commanderRequest)
         console.log(selected[0])
-        console.log(commanderRequest)
+        // console.log(commanderRequest)
         const search = await searchForCommander(String(selected[0]))
         if (search.data!){
             const nGrams = await getNGrams(String(selected[0]))

@@ -1,13 +1,14 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, ChangeEvent } from 'react'
 
 import Card from 'react-bootstrap/Card'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 // import CommanderReqType from '../types/commanderreq'
-// import { Typeahead } from 'react-bootstrap-typeahead' 
+import { Typeahead } from 'react-bootstrap-typeahead' 
 import NGramType from '../types/ngram'
 import { getCommanderNames, getNGrams, searchForCommander } from '../lib/apiWrapper'
 import CommanderCard from './CommanderCard'
+import { Option } from 'react-bootstrap-typeahead/types/types'
 
 type CommanderSearchProps = {
 }
@@ -15,6 +16,7 @@ type CommanderSearchProps = {
 export default function CommanderSearch({}: CommanderSearchProps) {
     // const [commanderRequest,setCommanderRequest] = useState<CommanderReqType>({"commanderName":""})
     const [commanderRequest,setCommanderRequest] = useState<string>("")
+    const [selected, setSelected] = useState<Option[]>([]);
 
     // const [singleSelections,setSingleSelections] = useState<Option[]>(Option[]);
 
@@ -46,10 +48,11 @@ export default function CommanderSearch({}: CommanderSearchProps) {
     async function searchCard(e: React.FormEvent):Promise<NGramType[]|void>{
         e.preventDefault();
         // console.log(commanderRequest)
+        console.log(selected[0])
         console.log(commanderRequest)
-        const search = await searchForCommander(commanderRequest)
+        const search = await searchForCommander(String(selected[0]))
         if (search.data!){
-            const nGrams = await getNGrams(commanderRequest)
+            const nGrams = await getNGrams(String(selected[0]))
             console.log(nGrams)
             setCardNGrams(nGrams.data!)
             setIsSearching(true)
@@ -75,18 +78,29 @@ export default function CommanderSearch({}: CommanderSearchProps) {
                     <Form.Label className='fs-1 ws-font'>Request a Commander!</Form.Label>
                     <p className='ws-font'>I am currently still assembling this data, so if we do not have it today, try again in a week!</p>
                     {/* <Form.Control className="custom-form-input" name='commanderName' value={commanderRequest.commanderName} onChange={handleInputChange}/> */}
-                    {/* <Typeahead
-                    id="basic-typeahead-single"
+                    <Typeahead
+                    id="request-commander"
                     labelKey="name"
-                    // onChange={setCommanderRequest}
+                    // onInputChange={(text:string) => setCommanderRequest(text)}
+                    onChange={setSelected}
                     options={commanderNames}
-                    placeholder="Choose a state..."
-                    // selected={commanderRequest}
-                    /> */}
-                    <Form.Select className="dropdown-form-input" name='commanderName'
-                    onChange={e => {setCommanderRequest(e.target.value);}}>
+                    placeholder="Choose a Commander..."
+                    selected={selected}
+                    inputProps={{
+                        className: 'typeahead-class',
+                        style: {
+                            'backgroundColor': 'rgb(150, 150, 150)',
+                            'borderColor': 'black',
+                            'boxShadow':'3px 3px 3px rgb(100,100,100)',
+                            'color':'black'
+                        }
+                    }}
+                    />
+                    {/* <Form.Select className="dropdown-form-input" name='commanderName'
+                    // onChange={e => {f(e.target.value);}}
+                    >
                     {commanderNames.map(p => <option value={p} key={p}>{p}</option>)}
-                    </Form.Select>
+                    </Form.Select> */}
                     <Button type='submit' variant='outline-dark' className='w-100 mt-3 btn-shadow'>Submit</Button>
                 </Form>
             </Card.Body>

@@ -31,13 +31,12 @@ body {
   margin-bottom: 0.75vh;
 }
 
-.dropdown-form-input{
+/* .dropdown-form-input{
   background-color: rgb(150, 150, 150);
   border-color: black;
   box-shadow:3px 3px 3px rgb(100,100,100);
   color: black;
-  margin-bottom: 0.75vh;
-}
+} */
 
 /* .custom-form-input-pw:hover{
   border-color: whitesmoke;

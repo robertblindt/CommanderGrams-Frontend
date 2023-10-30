@@ -8,6 +8,7 @@
 // import DeckCard from '../components/DeckCard';
 import CommanderSearch from '../components/CommanderSearch';
 import HomeCard from '../components/HomeCard';
+import WhatsGoingOnCard from '../components/WhatsGoingOnCard';
 
 type HomeProps = {
   isLoggedIn:boolean
@@ -22,6 +23,7 @@ export default function Home({isLoggedIn}: HomeProps) {
     <>
     <HomeCard isLoggedIn={isLoggedIn}/>
     <CommanderSearch/>
+    <WhatsGoingOnCard/>
     {/* I need to make a 'all decks' search that has only a 'take a look' button */}
     </>
   )

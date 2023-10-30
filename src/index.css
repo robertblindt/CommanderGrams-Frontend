@@ -84,6 +84,10 @@ body {
   background-image: linear-gradient(rgb(70, 70, 70), rgb(170,170,170));
 }
 
+.grad2 {
+  background-image: linear-gradient(rgb(70, 70, 70), rgb(160,160,160));
+}
+
 
 .custom-alert{
   border: solid 1px black;

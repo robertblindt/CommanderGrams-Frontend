@@ -53,6 +53,7 @@ return (
         {/* <Card.Img variant='top' src={deck.imageUrl}/> */}
         <Card.Body className="p-2">
             <Card.Img variant="top" className='mb-2 mtg-card-shadow' src={card.card_img} alt={card.card_name}/>
+            <p className='fs-5'>{card.card_name}</p>
             { currentUser?.id == deck.user_id ? (
                 <div className='row'>
                     <div className="col-4 p-0">

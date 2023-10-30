@@ -27,9 +27,8 @@ return (
             <Card.Img variant="top" className='mb-2 mtg-card-shadow card-h-limit mw-100' src={card.card_img} alt={card.card_name}/>
                 <div className='row text-center'>
                     <div className="col-12">
-                        { cards?.map(card => (<li className='fw-bold' key={card.n_gram}>{card.n_gram}</li>)) }
+                        { cards?.map(card => (<li className='fs-5 ws-font' key={card.n_gram}>{card.n_gram}&nbsp;</li>)) }
                     </div>
-                    {/* {Map cards card.n_gram here} */}
                 </div>
         </Card.Body>
     </Card>

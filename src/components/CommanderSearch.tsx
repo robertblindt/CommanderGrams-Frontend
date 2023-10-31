@@ -83,7 +83,7 @@ export default function CommanderSearch({}: CommanderSearchProps) {
                     labelKey="name"
                     // onInputChange={(text:string) => setCommanderRequest(text)}
                     onChange={setSelected}
-                    options={commanderNames}
+                    options={commanderNames.sort()}
                     placeholder="Choose a Commander..."
                     selected={selected}
                     inputProps={{

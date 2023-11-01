@@ -151,6 +151,12 @@ li::marker{
   max-height:100px;
 }
 
+.hc-bg{
+  background-image: linear-gradient(rgb(30, 30, 30, 0.75), rgb(50,50,50,0.6)), url("/img/homecard_small.png") ;
+  
+
+}
+
 /* didnt work */
 /* .footer-loc{
 position:absolute;

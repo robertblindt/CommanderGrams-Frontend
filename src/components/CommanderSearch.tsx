@@ -76,7 +76,7 @@ export default function CommanderSearch({}: CommanderSearchProps) {
             <Card.Body>
                 <Form onSubmit={searchCard}>
                     <Form.Label className='fs-1 ws-font'>Request a Commander!</Form.Label>
-                    <p className='ws-font'>I am currently still assembling this data, so if we do not have it today, try again in a week!</p>
+                    <p className='ws-font'>If you would like to see a commander that is not here, shoot me a message!  I am not scraping too many new commanders right now as I am trying to make the output easier to read.<br/><br/>You should be able to see  a list of commanders to choose from when you click on this entry box. If you do not, give it a minute.</p>
                     {/* <Form.Control className="custom-form-input" name='commanderName' value={commanderRequest.commanderName} onChange={handleInputChange}/> */}
                     <Typeahead
                     id="request-commander"

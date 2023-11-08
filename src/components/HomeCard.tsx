@@ -31,7 +31,7 @@ export default function HomeCard({isLoggedIn}: HomeCardProps) {
             <Card.Subtitle className='mt-4 fs-2 fw-normal'>CommanderGrams is here to help!</Card.Subtitle>
             <Card.Body className='fs-4 mt-3'>
                 
-                Not many people can keep track of the over 33,000 unique Magic the Gathering cards from the games over 30 years!  Right now there are more being release just about every month! The MTG community is lucky enough to have some tech-savvy players that have been gracious enough to create databases and website that track what is actively being released and built!
+                Not many people can keep track of the over 30,000 unique Magic the Gathering cards from the games over 30 years!  Right now there are more being release just about every month! The MTG community is lucky enough to have some tech-savvy players that have been gracious enough to create databases and website that track what is actively being released and built!
                 <br/>
                 <br/>
                 When you request a Commander below, we check EDHrecs recommendations for cards and let you know what we see in common with them.
